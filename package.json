@@ -1,27 +1,27 @@
 {
-  "name": "react-hook-web3",
+  "name": "next-recaptcha",
   "version": "0.0.1",
-  "description": "",
+  "description": "Google reCAPTCHA for your next React app.",
   "author": "Bunlong <bunlong.van@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bunlong/react-hook-web3.git"
+    "url": "git+https://github.com/Bunlong/next-recaptcha.git"
   },
   "bugs": {
-    "url": "https://github.com/Bunlong/react-hook-web3.git/issues"
+    "url": "https://github.com/Bunlong/next-recaptcha.git/issues"
   },
   "keywords": [
     "react",
-    "web3",
-    "react-hook-web3"
+    "next-recaptcha",
+    "recaptcha"
   ],
-  "homepage": "https://react-hook-web3.js.org",
-  "main": "dist/react-hook-web3.js",
-  "module": "dist/react-hook-web3.es.js",
-  "jsnext:main": "dist/react-hook-web3.es.js",
-  "types": "dist/react-hook-web3.d.ts",
-  "@comment unpkg": "dist/react-hook-web3.umd.js",
+  "homepage": "https://github.com/Bunlong/next-recaptcha",
+  "main": "dist/next-recaptcha.js",
+  "module": "dist/next-recaptcha.es.js",
+  "jsnext:main": "dist/next-recaptcha.es.js",
+  "types": "dist/next-recaptcha.d.ts",
+  "@comment unpkg": "dist/next-recaptcha.umd.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -29,7 +29,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "build": "rollup -c",
-    "prettier": "prettier --write './src/*.ts' './src/*.tsx' './demo/*js' --config ./.prettierrc",
+    "prettier": "prettier --write './src/*.ts' './src/*.tsx' --config ./.prettierrc",
     "lint:check": "eslint ./src --ext .tsx,.ts --report-unused-disable-directives",
     "bundlesize": "npm run build && bundlesize",
     "dev": "rollup -c -w",
@@ -43,7 +43,6 @@
     "@babel/preset-env": "^7.15.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
@@ -71,6 +70,8 @@
     "dist"
   ],
   "dependencies": {
+    "@types/papaparse": "^5.3.1",
+    "papaparse": "^5.3.1"
   },
   "bundlesize": [
     {
