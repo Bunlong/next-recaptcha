@@ -1,19 +1,27 @@
-import React from 'react';
+import type { NextPage } from 'next'
+import styles from '../styles/Home.module.css'
 
-import { usePapaParse } from 'react-papaparse';
+import { ReCAPTCHAProvider } from 'next-recaptcha';
 
-export default function ReadRemoteFile() {
-  const { readRemoteFile } = usePapaParse();
-
-  const handleReadRemoteFile = () => {
-    readRemoteFile('https://react-papaparse.js.org/static/csv/normal.csv', {
-      complete: (results) => {
-        console.log('---------------------------');
-        console.log('Results:', results);
-        console.log('---------------------------');
-      },
-    });
-  };
-
-  return <button onClick={() => handleReadRemoteFile()}>readRemoteFile</button>;
+const Home: NextPage = () => {
+  return (
+    <div className={styles.container}>
+      <ReCAPTCHAProvider
+        reCAPTCHAKey='[Your recaptcha key]'
+        language='[optional_language]'
+        useReCAPTCHANet='[optional_boolean_value]'
+        useEnterprise='[optional_boolean_value]'
+        script={{
+          async: false, // optional, default to false,
+          defer: false, // optional, default to false
+          appendTo: 'head', // optional, default to 'head', can be 'head' or 'body',
+          nonce: undefined // optional, default undefined
+        }}
+      >
+        Hello World
+      </ReCAPTCHAProvider>
+    </div>
+  )
 }
+
+export default Home
