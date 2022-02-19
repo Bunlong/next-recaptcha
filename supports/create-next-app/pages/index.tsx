@@ -8,9 +8,9 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <ReCAPTCHAProvider
         reCAPTCHAKey='[Your recaptcha key]'
-        language='[optional_language]'
-        useReCAPTCHANet='[optional_boolean_value]'
-        useEnterprise='[optional_boolean_value]'
+        // language='[optional_language]'
+        isReCAPTCHANet={false}
+        isEnterprise={false}
         script={{
           async: false, // optional, default to false,
           defer: false, // optional, default to false

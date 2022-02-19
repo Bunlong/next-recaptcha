@@ -1,7 +1,7 @@
 interface IInjectReCAPTCHAScript {
   reCAPTCHAKey: string;
-  useReCAPTCHANet: boolean;
-  useEnterprise: boolean;
+  isReCAPTCHANet: boolean;
+  isEnterprise: boolean;
   onLoad: () => void;
   onError: () => void;
   language?: string;
@@ -18,8 +18,8 @@ export const injectReCAPTCHAScript = ({
   reCAPTCHAKey,
   language,
   onLoad,
-  useReCAPTCHANet,
-  useEnterprise,
+  isReCAPTCHANet,
+  isEnterprise,
   script: {
     nonce = '',
     defer = false,
@@ -36,8 +36,8 @@ export const injectReCAPTCHAScript = ({
   }
 
   const reCAPTCHAUrl = getReCAPTCHAUrl({
-    useEnterprise,
-    useReCAPTCHANet,
+    isEnterprise,
+    isReCAPTCHANet,
   });
   const js = document.createElement('script');
 
@@ -63,13 +63,11 @@ export const injectReCAPTCHAScript = ({
 };
 
 export const clearReCAPTCHA = (scriptId: string) => {
-  // remove badge
   const nodeBadge = document.querySelector('.grecaptcha-badge');
   if (nodeBadge && nodeBadge.parentNode) {
     document.body.removeChild(nodeBadge.parentNode);
   }
 
-  // remove script
   const script = document.querySelector(`#${scriptId}`);
   if (script) {
     script.remove();
@@ -94,14 +92,14 @@ export const isScriptInjected = (scriptId: string) =>
   !!document.querySelector(`#${scriptId}`);
 
 const getReCAPTCHAUrl = ({
-  useReCAPTCHANet,
-  useEnterprise,
+  isReCAPTCHANet,
+  isEnterprise,
 }: {
-  useReCAPTCHANet: boolean;
-  useEnterprise: boolean;
+  isReCAPTCHANet: boolean;
+  isEnterprise: boolean;
 }) => {
-  const hostName = useReCAPTCHANet ? 'recaptcha.net' : 'google.com';
-  const script = useEnterprise ? 'enterprise.js' : 'api.js';
+  const hostName = isReCAPTCHANet ? 'recaptcha.net' : 'google.com';
+  const script = isEnterprise ? 'enterprise.js' : 'api.js';
 
   return `https://www.${hostName}/recaptcha/${script}`;
 };
