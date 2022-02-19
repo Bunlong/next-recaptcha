@@ -17,8 +17,8 @@ enum ReCAPTCHAError {
 interface IReCAPTCHAProvider {
   reCAPTCHAKey?: string;
   language?: string;
-  useReCAPTCHANet?: boolean;
-  useEnterprise?: boolean;
+  isReCAPTCHANet?: boolean;
+  isEnterprise?: boolean;
   script?: {
     nonce?: string;
     defer?: boolean;
@@ -45,8 +45,8 @@ const { Consumer: ReCAPTCHAConsumer } = ReCAPTCHAContext;
 
 export function ReCAPTCHAProvider({
   reCAPTCHAKey,
-  useEnterprise = false,
-  useReCAPTCHANet = false,
+  isEnterprise = false,
+  isReCAPTCHANet = false,
   script,
   language,
   children,
@@ -71,7 +71,7 @@ export function ReCAPTCHAProvider({
         return;
       }
 
-      const greCAPTCHA = useEnterprise
+      const greCAPTCHA = isEnterprise
         ? (window as any).grecaptcha.enterprise
         : (window as any).grecaptcha;
 
@@ -86,8 +86,8 @@ export function ReCAPTCHAProvider({
 
     injectReCAPTCHAScript({
       reCAPTCHAKey,
-      useEnterprise,
-      useReCAPTCHANet,
+      isEnterprise,
+      isReCAPTCHANet,
       script,
       language,
       onLoad,
@@ -97,7 +97,7 @@ export function ReCAPTCHAProvider({
     return () => {
       clearReCAPTCHA(scriptId);
     };
-  }, [useEnterprise, useReCAPTCHANet, script, language, reCAPTCHAKey]);
+  }, [isEnterprise, isReCAPTCHANet, script, language, reCAPTCHAKey]);
 
   const executeReCAPTCHA = useCallback(
     async (action?: string) => {
