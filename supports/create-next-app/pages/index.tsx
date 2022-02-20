@@ -4,6 +4,10 @@ import styles from '../styles/Home.module.css'
 import { ReCAPTCHAProvider, ReCAPTCHA } from 'next-recaptcha';
 
 const Home: NextPage = () => {
+  const handleVerify = (token: string) => {
+    console.log(token);
+  }
+
   return (
     <div className={styles.container}>
       <ReCAPTCHAProvider
@@ -18,9 +22,7 @@ const Home: NextPage = () => {
           nonce: undefined,
         }}
       >
-        <ReCAPTCHA onVerify={token => {
-          console.log(token);
-        }} />
+        <ReCAPTCHA onVerify={(token: string) => handleVerify(token)} />
       </ReCAPTCHAProvider>
     </div>
   )

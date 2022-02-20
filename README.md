@@ -82,9 +82,13 @@ import {
   ReCAPTCHA,
 } from 'next-recaptcha';
 
+const handleVerify = (token: string) => {
+  // set token
+}
+
 ReactDom.render(
   <ReCAPTCHAProvider reCaptchaKey='[reCAPTCHA key]'>
-    <ReCAPTCHA onVerify={() => handleVerify()} />
+    <ReCAPTCHA onVerify={(token: string) => handleVerify(token)} />
   </ReCAPTCHAProvider>,
   document.getElementById('app')
 );
