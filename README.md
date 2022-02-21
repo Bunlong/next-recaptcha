@@ -45,7 +45,7 @@ In your application need only one provider. You should place it as high as possi
 | reCAPTCHAPKey | boolean |  | ✔️ | Your reCAPTCHA key, get one from [here](https://www.google.com/recaptcha/about) |
 | script | object |  | ❌ |  |
 | language | string |  | ❌ | [Languages](https://developers.google.com/recaptcha/docs/language) that is supported by Google reCAPTCHAP. |
-| isReCAPTCHAPNet | boolean | false | ❌ | Ue to load script from `recaptcha.net`. [docs](https://developers.google.com/recaptcha/docs/faq#can-i-use-recaptcha-globally) |
+| isReCAPTCHANet | boolean | false | ❌ | Ue to load script from `recaptcha.net`. [docs](https://developers.google.com/recaptcha/docs/faq#can-i-use-recaptcha-globally) |
 | isEnterprise | boolean | false | ❌ | [Enterprise option](#enterprise) |
 
 #### Usages
