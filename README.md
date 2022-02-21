@@ -87,7 +87,7 @@ const handleVerify = (token: string) => {
 }
 
 ReactDom.render(
-  <ReCAPTCHAProvider reCaptchaKey='[reCAPTCHA key]'>
+  <ReCAPTCHAProvider reCAPTCHAPKey='[reCAPTCHA key]'>
     <ReCAPTCHA onVerify={(token: string) => handleVerify(token)} />
   </ReCAPTCHAProvider>,
   document.getElementById('app')
