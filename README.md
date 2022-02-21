@@ -55,7 +55,7 @@ import { ReCAPTCHAProvider } from 'next-recaptcha';
 
 ReactDom.render(
   <ReCAPTCHAProvider
-    reCAPTCHAPKey='[reCAPTCHA key]'
+    reCAPTCHAKey='[reCAPTCHA key]'
     language='[language]'
     isReCAPTCHAPNet={ true or false}
     isEnterprise={ true or false}
@@ -87,7 +87,7 @@ const handleVerify = (token: string) => {
 }
 
 ReactDom.render(
-  <ReCAPTCHAProvider reCAPTCHAPKey='[reCAPTCHA key]'>
+  <ReCAPTCHAProvider reCAPTCHAKey='[reCAPTCHA key]'>
     <ReCAPTCHA onVerify={(token: string) => handleVerify(token)} />
   </ReCAPTCHAProvider>,
   document.getElementById('app')
