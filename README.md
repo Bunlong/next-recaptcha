@@ -57,7 +57,7 @@ ReactDom.render(
   <ReCAPTCHAProvider
     reCAPTCHAKey='[reCAPTCHA key]'
     language='[language]'
-    isReCAPTCHAPNet={ true or false}
+    isReCAPTCHANet={ true or false}
     isEnterprise={ true or false}
     script={{
       async: false,
